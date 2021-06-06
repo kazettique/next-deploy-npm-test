@@ -6,8 +6,6 @@ name: Node.js CI
 on:
   push:
     branches: [ main ]
-  pull_request:
-    branches: [ main ]
 
 jobs:
   build:
@@ -31,11 +29,7 @@ jobs:
 
     - name: Build my App  
       run: npm run build
-      env:
-        NEXT_PUBLIC_BASE_PATH: /next-deploy-npm-test
     - run: npm run export
-      env:
-        NEXT_PUBLIC_BASE_PATH: /next-deploy-npm-test
     - run: touch ./out/.nojekyll
     
     - name: Deploy 🚀
